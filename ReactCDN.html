@@ -1,0 +1,85 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Add React to website</h1>
+    <div id="root"></div>
+
+    <!-- #1 document.createElement vs React.createElement -->
+    <!-- <script>
+        
+        // tạo element h1 DOM
+        const h1DOM = document.createElement('h1');
+        h1DOM.title = 'hello';
+        h1DOM.className = 'heading';
+        h1DOM.innerText = 'hello guy!';
+        document.body.appendChild(h1DOM);;
+        // tạo element h1 React
+        const h1React = React.createElement('h1', {
+        titile: 'hello',
+        className: 'heading',
+        }, 'hello React');
+        // console.log(h1DOM);   
+        // console.log(h1React);   
+
+        // tạo element ul như bên dưới
+        /*
+           <ul>
+                <li>Javascript</li>
+                <li>ReactJS</li>
+            </ul>
+        */
+        // DOM
+        const ulDOM = document.createElement('ul');
+        const liDOM1 = document.createElement('li');
+        liDOM1.innerText = 'Javascript';
+        const liDOM2 = document.createElement('li');
+        liDOM2.innerText = 'ReactJS';
+        ulDOM.appendChild(liDOM1);
+        ulDOM.appendChild(liDOM2);
+        document.body.appendChild(ulDOM)
+        // React
+        const ulReact = React.createElement('ul', null, 
+            React.createElement('li', null, 'Javascript'),
+            React.createElement('li', null, 'ReactJS'),
+        )
+        // console.log(ulDOM);
+        // console.log(ulReact);
+        
+    </script> -->
+
+    <!-- #2 dùng ReactDOM để render ra element -->
+    <script>
+        /*
+        <div class="post-item">
+            <h2 title="Học React cơ bản tại F8">Học ReactJS</h2>
+            <p>Học React cơ bản đến nâng cao</p>
+        </div>
+        */
+        const postItem = React.createElement(
+            'div',
+            {
+                className: 'post-item'
+            },
+            React.createElement(
+                'h2',
+                {
+                    title: 'Học React cơ bản tại F8'
+                },
+                'Học ReactJS'
+            ),
+            React.createElement(
+                'p', null, 'Học React cơ bản đến nâng cao'
+            )
+        )
+        const root = document.querySelector('#root');
+        ReactDOM.render(postItem, root);
+    </script>
+</body>
+</html>     

@@ -1,0 +1,17 @@
+- dùng React 17.0.2
+- dùng CDN <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script> dể dùng React không cần tải từ npm
+- nếu dùng React CDN thì dùng console.log ra để thấy được các thuộc tính của React
+    + React.version để kiểm tra phiên bản React Đang dùng
+- React.createElement dùng để tạo 1 element, giống document.createElement
+- React.createElement(type, props, child, child n,...);
+- React.createElement(<element>, {<các thuộc tính của element>}, '<text node>');
+    ex: const h1React = React.createElement('h1', {
+        titile: 'hello',
+        className: 'heading',
+    }, 'hello React')   
+    --> nếu muốn render ra phải dùng react-dom 
+
+-> React.createElement thực tế không dùng, này để học cho biết
+- dùng ReactDOM 17.0.2
+- dùng CDN <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script> để dùng ReactDOM, ReactDOM dùng để render các element
+- ReactDOM.render(element, container, callback). Hiện tại chưa dùng đến tham số callback
