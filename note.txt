@@ -11,7 +11,15 @@
     }, 'hello React')   
     --> nếu muốn render ra phải dùng react-dom 
 
--> React.createElement thực tế không dùng, này để học cho biết
+-> React.createElement thực tế không dùng, này để học cho biết. dùng JSX dễ hơn
 - dùng ReactDOM 17.0.2
 - dùng CDN <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script> để dùng ReactDOM, ReactDOM dùng để render các element
 - ReactDOM.render(element, container, callback). Hiện tại chưa dùng đến tham số callback
+- dùng babel <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+- dùng thư viện babel để code JSX. không dùng React.createElement dài dòng nữa
+- JSX có thể viết JS trong HTML, dùng dấu '{}'. Thêm type="text/babel" ở thẻ mở script trình duyệt nó mới nhận babel
+    --> nếu không dùng type="text/babel" thì sẽ không code được JSX
+- thuộc tính style trong JSX là 1 object
+    + <p style={{color: 'red'}}>Hello</p>
+- <React.Fragment>...</React.Fragment> viết được nhiều block element
+- dùng function/class để chia component

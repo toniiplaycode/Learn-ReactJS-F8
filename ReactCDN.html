@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -55,7 +56,7 @@
     </script> -->
 
     <!-- #2 dùng ReactDOM để render ra element -->
-    <script>
+    <!-- <script>
         /*
         <div class="post-item">
             <h2 title="Học React cơ bản tại F8">Học ReactJS</h2>
@@ -78,8 +79,72 @@
                 'p', null, 'Học React cơ bản đến nâng cao'
             )
         )
+        const container = document.querySelector('#root');
+        // React 17
+        ReactDOM.render(postItem, container);
+        // React 18
+        // const root = ReactDOM.createRoot(container)
+        // root.render(postItem)
+    </script> -->
+
+    <!-- #3 dùng thư viện babel để code JSX -->
+    <!-- <script type="text/babel">
+        const container = document.querySelector('#root');
+        const postItem = <div className="post-item">
+            <h2 title="Học React cơ bản tại F8">Học ReactJS</h2>
+            <p style = {{color: 'red'}}>Sử dụng thư viện babel để code JSX. Không dùng React.createElement nữa</p>
+        </div>
+        ReactDOM.render(postItem, container);
+    </script> -->
+
+    <!-- #4 dùng map để render từ 1 mảng -->
+    <!-- <script type="text/babel">
+        const arr = ['html', 'css', 'js'];
         const root = document.querySelector('#root');
-        ReactDOM.render(postItem, root);
+        const languges = 
+        <React.Fragment>
+            <ul>
+            {
+                arr.map((item, index) => 
+                    <li key={index}>{item}</li>
+                )
+            }
+            </ul>
+            <div>
+                hello world
+            </div>
+        </React.Fragment>
+        ReactDOM.render(languges, root);
+    </script> -->
+
+    <!-- $5 dùng function/class để chia component -->
+    <script type="text/babel">
+        //function component
+        const Header = () => {
+            return(
+                <div>
+                    This is header
+                </div>
+            )
+        }
+        //class component
+        class Main extends React.Component{
+            render(){
+                return(
+                    <div>
+                        This is main    
+                    </div>
+                )
+            }
+        }
+
+        const root = document.querySelector('#root');
+        const app = 
+            <div>
+                <Header/>
+                <Main/>
+            </div>
+        ReactDOM.render(app, root);
     </script>
 </body>
 </html>     
