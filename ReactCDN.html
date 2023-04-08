@@ -117,8 +117,8 @@
         ReactDOM.render(languges, root);
     </script> -->
 
-    <!-- $5 dùng function/class để chia component -->
-    <script type="text/babel">
+    <!-- #5 dùng function/class để chia component -->
+    <!-- <script type="text/babel">
         //function component
         const Header = () => {
             return(
@@ -145,6 +145,48 @@
                 <Main/>
             </div>
         ReactDOM.render(app, root);
+    </script> -->
+
+    <!-- #6 dùng props, kết hợp với destructuring -->
+    <script type="text/babel">
+        //PostItem.js
+        function PostItem({name, address, randomID}){
+            return(
+                <div className='post-item'>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhln4-ygosRcYC8XLmLPuh_bxZXFH8xpD48w&usqp=CAU" alt=""/>
+                    <p>ID: {randomID()}</p>
+                    <h2>{name}</h2>
+                    <h3>{address}</h3>
+                    </div>
+            )
+        }
+        //App.js
+        function App() {
+            function randomID(){
+                return Math.floor(Math.random() * 100);
+            }
+            return (
+                <div id='wrapper'>
+                    <PostItem
+                        name = {'Thanh Toan 1'}
+                        address = {'Can Tho 1'}
+                        randomID = {randomID}
+                    />
+                    <PostItem
+                        name = {'Thanh Toan 2'}
+                        address = {'Can Tho 2'}
+                        randomID = {randomID}
+                    />
+                    <PostItem
+                        name = {'Thanh Toan 3'}
+                        address = {'Can Tho 3'}
+                        randomID = {randomID}
+                    />
+                </div>
+            )
+        }
+        //index.js
+        ReactDOM.render(<App/>, document.querySelector('#root'));
     </script>
 </body>
 </html>     

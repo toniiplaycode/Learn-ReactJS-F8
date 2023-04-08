@@ -23,3 +23,5 @@
     + <p style={{color: 'red'}}>Hello</p>
 - <React.Fragment>...</React.Fragment> viết được nhiều block element
 - dùng function/class để chia component
+- dùng props(props có kiểu dữ liệu là object) có thể truyền được tất cả kiểu dữ liệu, dùng kết hợp với destructuring
+- tên các DOM event trong React là camel case: onClick, onChange,...
