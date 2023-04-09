@@ -24,4 +24,11 @@
 - <React.Fragment>...</React.Fragment> viết được nhiều block element
 - dùng function/class để chia component
 - dùng props(props có kiểu dữ liệu là object) có thể truyền được tất cả kiểu dữ liệu, dùng kết hợp với destructuring
-- tên các DOM event trong React là camel case: onClick, onChange,...
+- tên các DOM event trong React là camelCase: onClick, onChange,...
+- tên component đặt kiểu PascalCase, nếu không sẽ bị lỗi
+- children props: là thuộc tính của props, children là nội dung bên trong 1 component
+- dùng nodeJS chứ không dùng CDN link nữa
+- npx create-react-app <tên project>: tạo project với ReactJS
+- mặc định là React18 nên mình phải hạ xuống React17 (https://dev.to/ifeanyichima/how-to-downgrade-from-react-18-to-1702-818) để code theo F8 không bị lỗi
+- npm start: chạy project trên trình duyệt
+- các file trong folder public ở trình duyệt mới truy cập được, còn lại ở trình duyệt không truy cập được(bảo mật), khi React chạy thì file index.html trong folder public sẽ được chạy

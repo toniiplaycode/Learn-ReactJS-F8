@@ -148,7 +148,7 @@
     </script> -->
 
     <!-- #6 dùng props, kết hợp với destructuring -->
-    <script type="text/babel">
+    <!-- <script type="text/babel"><
         //PostItem.js
         function PostItem({name, address, randomID}){
             return(
@@ -186,6 +186,21 @@
             )
         }
         //index.js
+        ReactDOM.render(<App/>, document.querySelector('#root'));
+    </script> -->
+
+    <!-- #7 children props -->
+    <script type="text/babel">
+        function Button({children}) {
+            return <button>{children}</button>
+        }
+        function App() {
+            return (
+                <div id="wrapper">
+                    <Button>click me!</Button>
+                </div>
+            )
+        }
         ReactDOM.render(<App/>, document.querySelector('#root'));
     </script>
 </body>
