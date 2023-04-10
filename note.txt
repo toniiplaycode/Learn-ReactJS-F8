@@ -32,3 +32,20 @@
 - mặc định là React18 nên mình phải hạ xuống React17 (https://dev.to/ifeanyichima/how-to-downgrade-from-react-18-to-1702-818) để code theo F8 không bị lỗi
 - npm start: chạy project trên trình duyệt
 - các file trong folder public ở trình duyệt mới truy cập được, còn lại ở trình duyệt không truy cập được(bảo mật), khi React chạy thì file index.html trong folder public sẽ được chạy
+- Hook chỉ được dùng trong function component, không dùng "this" như trong class component
+- tạo folder hooks sử dụng các method của hook 
+    + useState(): là các giá trị được lưu trữ trong component giá trị thay đổi thì giao diện sẽ thay đổi và component đó sẽ được re-render lại
+        - syntax: const [state, setState] = useState(initState);
+            + setState mới sẽ ghi đè state cũ, dùng kết hợp với spead để thêm state mà không bị ghi đè state cũ
+            + initState bất cứ kiểu dữ liệu gì cũng được, nếu initState là 1 hàm thì initState sẽ lấy giá trị của hàm đó retrun về, và các giá trị trong initState chỉ được khởi tạo 1 lần duy nhất khi component render lần đầu
+- truyền hàm cho các sự kiện:
+    ex: function logger(){
+            console.log(123);
+        }
+        JSX: 
+        + <button onClick={logger}></button> //kiểu tham chiếu, khi click vào thì hàm mới thực thi
+        + <button onClick={logger()}></button> // khi component render thì hàm sẽ thực thi luôn, chưa click mà đã thực thi, cách này sai 
+        + <button onClick={() => logger()}></button> //cơ chế giống kiểu tham chiếu, nhưng sẽ truyền được tham số
+- tips hay: dùng callback trong setState thì callback sẽ thực hiện sau khi component được re-render lại, React sẽ lên lịch cập nhật state và render lại, sau đó callback được truyền trong setState mới được thực thi s
+- toán tử '??' (Nullish Coalescing Operator) để kiểm tra giá trị bên trái nếu là 'null' hoặc 'undefined' thì sẽ gán giá trị bên phải và ngược lại
+    --> toán tử này được dùng lai lai toán tử 3 ngôi (ternary operator)
