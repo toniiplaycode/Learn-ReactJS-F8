@@ -19,9 +19,15 @@ const Todo = () => {
 
             return newListJob;
         }); 
-
         setJob(''); // submit xong thì clear input
+    }
 
+    const handleDelete = (indexJob) => {
+        setListJob(() => {
+            const newListJob = listJob.filter((item, index) => index !== indexJob);
+            localStorage.setItem('listJob', JSON.stringify(newListJob));
+            return newListJob;
+        });
     }
 
     return (
@@ -33,7 +39,7 @@ const Todo = () => {
                     listJob.map((item, index) => {
                         return(
                             <li key={index}>
-                                {item}
+                                {item} <button onClick={() => handleDelete(index)}>X</button>
                             </li>
                         )
                     })

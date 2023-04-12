@@ -33,11 +33,11 @@
 - npm start: chạy project trên trình duyệt
 - các file trong folder public ở trình duyệt mới truy cập được, còn lại ở trình duyệt không truy cập được(bảo mật), khi React chạy thì file index.html trong folder public sẽ được chạy
 - Hook chỉ được dùng trong function component, không dùng "this" như trong class component
-- tạo folder hooks sử dụng các method của hook 
-    + useState(): là các giá trị được lưu trữ trong component giá trị thay đổi thì giao diện sẽ thay đổi và component đó sẽ được re-render lại
-        - syntax: const [state, setState] = useState(initState);
-            + setState mới sẽ ghi đè state cũ, dùng kết hợp với spead để thêm state mà không bị ghi đè state cũ
-            + initState bất cứ kiểu dữ liệu gì cũng được, nếu initState là 1 hàm thì initState sẽ lấy giá trị của hàm đó retrun về, và các giá trị trong initState chỉ được khởi tạo 1 lần duy nhất khi component render lần đầu
+- useState(): là các giá trị được lưu trữ trong component giá trị thay đổi thì giao diện sẽ thay đổi và component đó sẽ được re-render lại
+    + syntax: const [state, setState] = useState(initState);
+        - setState mới sẽ ghi đè state cũ, dùng kết hợp với spead để thêm state mà không bị ghi đè state cũ
+        - initState bất cứ kiểu dữ liệu gì cũng được, nếu initState là 1 hàm thì initState sẽ lấy giá trị của hàm đó retrun về, và các giá trị trong initState chỉ được khởi tạo 1 lần duy nhất khi component render lần đầu
+- nên dùng callback có tham số prevState để setState       
 - truyền hàm cho các sự kiện:
     ex: function logger(){
             console.log(123);
@@ -47,5 +47,25 @@
         + <button onClick={logger()}></button> // khi component render thì hàm sẽ thực thi luôn, chưa click mà đã thực thi, cách này sai 
         + <button onClick={() => logger()}></button> //cơ chế giống kiểu tham chiếu, nhưng sẽ truyền được tham số
 - tips hay: dùng callback trong setState thì callback sẽ thực hiện sau khi component được re-render lại, React sẽ lên lịch cập nhật state và render lại, sau đó callback được truyền trong setState mới được thực thi s
-- toán tử '??' (Nullish Coalescing Operator) để kiểm tra giá trị bên trái nếu là 'null' hoặc 'undefined' thì sẽ gán giá trị bên phải và ngược lại
+- toán tử '??' (Nullish Coalescing Operator) để kiểm tra giá trị bên trái nếu là 'null' hoặc 'undefined' thì code bên phải được chạy và ngược lại
     --> toán tử này được dùng lai lai toán tử 3 ngôi (ternary operator)
+- toán tử '&&' là truty, nếu giá trị bên trái khác false, null, undefined, 0, NaN, '<rỗng>' thì code bên phải được chạy và ngược lại
+- thuật ngữ "Mount và Unmount" là gắn và gở 1 component, (dùng câu lệnh điều kiện + useState để thực hiện)
+- useEffect: cho phép thực hiện các side effect trong component. Side effect là các thao tác bên ngoài component như tương tác với API, đọc/ghi dữ liệu từ DB hoặc thay đổi DOM (https://chat.openai.com/chat/5a13ac2f-c84f-49b2-938e-acea958b5a8d), hàm useEffect có 2 tham số: callback(để thực các side effect), dependency
+    1. useEffect chỉ có callback không có tham số dependency (trường hợp này ít dùng vì callback sẽ được gọi lại khi component re-render)
+        - gọi callback mỗi khi component re-render 
+        - khi state trong component thay đổi thì callback được gọi lại
+        - gọi callback sau khi component thêm element vào DOM
+    2. useEffect có callback và có dependency là mảng rỗng '[]'
+        - chỉ gọi callback 1 lần sau khi component mouted, component có re-render thì callback vẫn không bị gọi lại
+    3. useEffect có callback và có dependency '[<biến, state hoặc props,...>]'
+        - callback chỉ được gọi khi dependency thay đổi
+    --> cả 3 trường hợp: 
+        >> callback được gọi sau khi component mouted (là component được render là đầu tiên), 1 useEffect chỉ thực hiện 1 side effect.
+        >> cleanup function được gọi trước khi component unmouted (để tránh memory leak). cleanup function là hàm được callback trong useEffect return
+        >> cleanup function được gọi trước callback (trừ lúc component Mount là callback sẽ được gọi trước)
+- khi dùng React thì các component thường xuyên Mount và Unmount bởi thao tác của người dùng, khi dùng window event lúc Mount thì event của window được lưu trong bộ nhớ và lúc Unmount thì event đó không bị xoá đi mà vẫn còn nằm trong bộ nhớ, điều này làm rò rỉ bộ nhớ (memory leak). Cách khắc phục là lúc Mount thì addEventListener, lúc Unmount thì removeEventListener. Dùng cleanup function để removeEventListener
+- các hàm timer functions:  setInterval, setTimeout. 2 hàm này web API của trình duyệt, không phải của JS
+- khi component dùng setInterval, setTimeout, bất đồng bộ, listener event có thể Unmount thì phải cleanup function để tránh bị memory leak
+- ứng dụng của cleanup function là up ảnh làm avatar, tải ảnh từ local lên web,
+khi chọn 1 ảnh và dùng luôn thì không nói, khi chọn ảnh thứ 2 để đè lên ảnh thứ nhất, thì dùng cleanup function để xoá ảnh thứ nhất đi
