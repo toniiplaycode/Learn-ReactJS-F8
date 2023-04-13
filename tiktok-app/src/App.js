@@ -6,7 +6,10 @@ import Todo from './Hooks/Todo';
 import MountUnmout from './Hooks/MountUnmout';
 import UseEffect from './Hooks/UseEffect';
 import UseEffect2 from './Hooks/UseEffect2';
-import UseEffect3 from './Hooks/UseEffect3';
+import UseRef from './Hooks/UseRef';
+import UseRef2 from './Hooks/UseRef2';
+
+import { useState } from 'react';
 
 function App() {
   const [show, setShow] = useState(true);
@@ -31,8 +34,10 @@ function App() {
         {/* <button onClick = {() => setShow(!show)}>toggle</button>
         {show && <UseEffect2/>}  */}
 
-        <button onClick = {() => setShow(!show)}>toggle</button>
-        {show && <UseEffect3/>} 
+        {/* <UseRef/> */}
+
+        <UseRef2/>
+
       </header>
     </div>
   );

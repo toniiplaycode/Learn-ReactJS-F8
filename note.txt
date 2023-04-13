@@ -46,7 +46,7 @@
         + <button onClick={logger}></button> //kiểu tham chiếu, khi click vào thì hàm mới thực thi
         + <button onClick={logger()}></button> // khi component render thì hàm sẽ thực thi luôn, chưa click mà đã thực thi, cách này sai 
         + <button onClick={() => logger()}></button> //cơ chế giống kiểu tham chiếu, nhưng sẽ truyền được tham số
-- tips hay: dùng callback trong setState thì callback sẽ thực hiện sau khi component được re-render lại, React sẽ lên lịch cập nhật state và render lại, sau đó callback được truyền trong setState mới được thực thi s
+- tips hay: dùng callback trong setState thì callback sẽ thực hiện sau khi component được re-render lại, React sẽ lên lịch cập nhật state và render lại, sau đó callback được truyền trong setState mới được thực thi sau
 - toán tử '??' (Nullish Coalescing Operator) để kiểm tra giá trị bên trái nếu là 'null' hoặc 'undefined' thì code bên phải được chạy và ngược lại
     --> toán tử này được dùng lai lai toán tử 3 ngôi (ternary operator)
 - toán tử '&&' là truty, nếu giá trị bên trái khác false, null, undefined, 0, NaN, '<rỗng>' thì code bên phải được chạy và ngược lại
@@ -63,9 +63,16 @@
     --> cả 3 trường hợp: 
         >> callback được gọi sau khi component mouted (là component được render là đầu tiên), 1 useEffect chỉ thực hiện 1 side effect.
         >> cleanup function được gọi trước khi component unmouted (để tránh memory leak). cleanup function là hàm được callback trong useEffect return
-        >> cleanup function được gọi trước callback (trừ lúc component Mount là callback sẽ được gọi trước)
+        >> cleanup function được gọi trước callback (trừ lúc component Mount là callback sẽ được gọi trước)    
 - khi dùng React thì các component thường xuyên Mount và Unmount bởi thao tác của người dùng, khi dùng window event lúc Mount thì event của window được lưu trong bộ nhớ và lúc Unmount thì event đó không bị xoá đi mà vẫn còn nằm trong bộ nhớ, điều này làm rò rỉ bộ nhớ (memory leak). Cách khắc phục là lúc Mount thì addEventListener, lúc Unmount thì removeEventListener. Dùng cleanup function để removeEventListener
 - các hàm timer functions:  setInterval, setTimeout. 2 hàm này web API của trình duyệt, không phải của JS
 - khi component dùng setInterval, setTimeout, bất đồng bộ, listener event có thể Unmount thì phải cleanup function để tránh bị memory leak
 - ứng dụng của cleanup function là up ảnh làm avatar, tải ảnh từ local lên web,
 khi chọn 1 ảnh và dùng luôn thì không nói, khi chọn ảnh thứ 2 để đè lên ảnh thứ nhất, thì dùng cleanup function để xoá ảnh thứ nhất đi
+- thứ tự luồng code chạy của component khi dùng useEffect: (https://chat.openai.com/chat/21fabe0e-2136-4722-83d1-add7a97f756d)
+    1. cập nhật lại state
+    2. cập nhật DOM
+    3. render lại UI
+    4. gọi cleanup nếu dependency thay đổi
+    5. gọi callback useEffect
+- useRef(<initValue>) dùng để lưu các giá trị khi component re-render thì các giá trị useRef cũng không bị ảnh hưởng, không bị set lại, hàm useRef sẽ trả về 1 object có key là current

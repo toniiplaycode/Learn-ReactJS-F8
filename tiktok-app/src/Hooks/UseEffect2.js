@@ -2,7 +2,7 @@ import { useEffect,useState } from "react";
 
 const UseEffect2 = () => {  
     //#1 đếm ngược
-    const [countDown, setCountDown] = useState(60)
+    // const [countDown, setCountDown] = useState(60)
 
     // setInterval(()=>{
     //     setCountDown(countDown - 1);
