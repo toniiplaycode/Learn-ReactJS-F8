@@ -8,6 +8,7 @@ import UseEffect from './Hooks/UseEffect';
 import UseEffect2 from './Hooks/UseEffect2';
 import UseRef from './Hooks/UseRef';
 import UseRef2 from './Hooks/UseRef2';
+import ParentMemo from './HOC/ParentMemo';
 
 import { useState } from 'react';
 
@@ -36,7 +37,9 @@ function App() {
 
         {/* <UseRef/> */}
 
-        <UseRef2/>
+        {/* <UseRef2/> */}
+
+        <ParentMemo/>
 
       </header>
     </div>
