@@ -80,3 +80,6 @@ khi chọn 1 ảnh và dùng luôn thì không nói, khi chọn ảnh thứ 2 đ
 - memo: là một HOC(higher order component) nhận tham số là 1 component sau đó check các props của component này sau mỗi lần render có bị thay đổi không. Nếu có ít nhất 1 props bị thay đổi giá trị thì sẽ re-render lại component đó còn nếu không có props nào thay đổi thì sẽ không re-render lại component
     --> lần đầu khi component cha được Mount thì component con vẫn được, sau khi Mount thì memo mới bắt đầu check prop
     --> dùng memo thì cần thiết, khi 1 component con không dùng props nào của component cha thì nên dùng meno. nếu component con có dùng props từ component cha thì khỏi cần dùng memo
+- useCallback dùng để tối ưu, nó giúp tránh tạo ra các hàm callback mới mỗi khi component re-render, useCallback nhận 2 tham số, callback và mảng dependency. nếu mảng dependency là 1 mảng trống thì nó sẽ không tạo ra 1 tham chiếu mới khi component re-render. nếu có dependency thì dependency đó thay đổi thì nó mới tạo ra 1 tham chiếu mới (cơ chế giống useEffect)
+- nếu 2 component cha con thì component con dùng memo, component cha mới dùng được useCallback
+- useMemo: dùng để tránh lập lại logic không cần thiết, nó khác với memo. memo là tránh re-render lại component không cần thiết. useMemo là Hook, memo là HOC. cách dùng và cơ chế cũng giống giống useEffect, useCallback
