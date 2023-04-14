@@ -83,3 +83,4 @@ khi chọn 1 ảnh và dùng luôn thì không nói, khi chọn ảnh thứ 2 đ
 - useCallback dùng để tối ưu, nó giúp tránh tạo ra các hàm callback mới mỗi khi component re-render, useCallback nhận 2 tham số, callback và mảng dependency. nếu mảng dependency là 1 mảng trống thì nó sẽ không tạo ra 1 tham chiếu mới khi component re-render. nếu có dependency thì dependency đó thay đổi thì nó mới tạo ra 1 tham chiếu mới (cơ chế giống useEffect)
 - nếu 2 component cha con thì component con dùng memo, component cha mới dùng được useCallback
 - useMemo: dùng để tránh lập lại logic không cần thiết, nó khác với memo. memo là tránh re-render lại component không cần thiết. useMemo là Hook, memo là HOC. cách dùng và cơ chế cũng giống giống useEffect, useCallback
+- useReducer (https://chat.openai.com/c/4e64710f-6c84-4d74-a442-083c961a02f6). trong bài toán đơn giản thì dùng useState, phức tạp thì dùng useReducer

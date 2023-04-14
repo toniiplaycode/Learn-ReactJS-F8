@@ -11,6 +11,8 @@ import UseRef2 from './Hooks/UseRef2';
 import ParentMemo from './HOC/ParentMemo';
 import UseCallback from './Hooks/UseCallback';
 import UseMemo from './Hooks/UseMemo';
+import UseReducer from './Hooks/UseReducer';
+import ToDoUseReducer from './Hooks/ToDoUseReducer';
 
 import { useState } from 'react';
 
@@ -45,7 +47,11 @@ function App() {
 
         {/* <UseCallback/> */}
 
-        <UseMemo/>
+        {/* <UseMemo/> */}
+
+        {/* <UseReducer/> */}
+
+        <ToDoUseReducer/>
 
       </header>
     </div>
