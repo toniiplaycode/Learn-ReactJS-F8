@@ -84,3 +84,4 @@ khi chọn 1 ảnh và dùng luôn thì không nói, khi chọn ảnh thứ 2 đ
 - nếu 2 component cha con thì component con dùng memo, component cha mới dùng được useCallback
 - useMemo: dùng để tránh lập lại logic không cần thiết, nó khác với memo. memo là tránh re-render lại component không cần thiết. useMemo là Hook, memo là HOC. cách dùng và cơ chế cũng giống giống useEffect, useCallback
 - useReducer (https://chat.openai.com/c/4e64710f-6c84-4d74-a442-083c961a02f6). trong bài toán đơn giản thì dùng useState, phức tạp thì dùng useReducer
+- useContext được sử dụng để truyền dữ liệu từ component cha đến component con một cách hiệu quả hơn. Nó giúp tránh việc truyền dữ liệu qua nhiều tầng component(prop drilling), component cha dùng useContext thì tất cả component con (con của con,...) điều nhận được dữ liệu (https://chat.openai.com/c/3274eb06-8ccb-4228-8a20-497136204863)

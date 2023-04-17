@@ -13,6 +13,7 @@ import UseCallback from './Hooks/UseCallback';
 import UseMemo from './Hooks/UseMemo';
 import UseReducer from './Hooks/UseReducer';
 import ToDoUseReducer from './Hooks/ToDoUseReducer';
+import UseContext from './Hooks/UseContext';
 
 import { useState } from 'react';
 
@@ -51,7 +52,9 @@ function App() {
 
         {/* <UseReducer/> */}
 
-        <ToDoUseReducer/>
+        {/* <ToDoUseReducer/> */}
+        
+        <UseContext/>
 
       </header>
     </div>
