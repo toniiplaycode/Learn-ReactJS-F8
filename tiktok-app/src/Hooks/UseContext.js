@@ -8,7 +8,6 @@ import ChildUseContext from "./ChildUseContext";
 
 export const themeContext = createContext(); //hàm createContext sẽ trả về 1 object có 2 properties quan trọng là Provider(dùng createContext() & value để cung cấp dữ liệu) và Comsumer(dùng useContext để lấy được dữ liệu)
 
-
 const UseContext = () => { 
     const [theme, setTheme] = useState('light');
 
