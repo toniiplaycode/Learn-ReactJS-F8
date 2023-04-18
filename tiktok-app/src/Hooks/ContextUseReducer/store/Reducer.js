@@ -1,8 +1,11 @@
-import { SET_TODO_INPUT, ADD_TODO } from "./constants";
+import { SET_TODO_INPUT, ADD_TODO, DELETE_TODO } from "./constants";
 
 const initState = {
     todos: [],
-    todoInput: ''
+    todoInput: '',
+    editTodo: false,
+    indexEdit: null,
+    editInput: '',
 }
 
 function reducer(state, action){
@@ -11,11 +14,18 @@ function reducer(state, action){
             return{
                 ...state,
                 todoInput: action.payload
-            }
+            }   
         case ADD_TODO:
             return{
-                todos: [...state.todos, action.payload],
-                todoInput: ''
+                ...state,
+                todoInput: '',
+                todos: [...state.todos, action.payload]
+            }
+        case DELETE_TODO:
+            const newTodos = state.todos.filter((todo, index) => index !== action.payload); 
+            return{
+                ...state,
+                todos: newTodos
             }
         default: 
         throw new Error('Invalid action!')   

@@ -9,9 +9,11 @@ const ContextUseReducer = () =>{
         dispatch(actions.addTodo(todoInput));
     }
 
-    console.log('todos: ', todos);
+    const handleDelete = (index) => {
+        dispatch(actions.deleteTodo(index));
+    }
 
-    return(
+    return( 
         <div>
             <input
                 value={todoInput}
@@ -26,6 +28,7 @@ const ContextUseReducer = () =>{
                     return(
                         <li key={index}>
                             {todo}
+                            <button onClick={() => handleDelete(index)}>&times;</button>
                         </li>
                     )
                 })}
