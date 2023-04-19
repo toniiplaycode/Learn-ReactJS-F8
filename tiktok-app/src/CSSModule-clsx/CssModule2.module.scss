@@ -1,0 +1,7 @@
+.headingTitle{ /* trùng class với CssModule1 nhưng vẫn không bị ảnh hưởng */
+    color: blue;
+    
+    &:hover{
+        background: orange;
+    }
+}

@@ -1,0 +1,23 @@
+.headingTitle{ /* trùng class với CssModule2 nhưng vẫn không bị ảnh hưởng */
+   color: red;
+}
+
+.fontFamily{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#fontSize{
+    font-size: 4rem;
+}
+
+.textDecoration{
+    text-decoration: underline;
+
+    &:hover{
+        text-decoration: overline;
+    }
+}
+
+.bgGrey{
+    background: grey;
+}

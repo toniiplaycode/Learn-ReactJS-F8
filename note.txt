@@ -87,3 +87,13 @@ khi chọn 1 ảnh và dùng luôn thì không nói, khi chọn ảnh thứ 2 đ
 - useReducer (https://chat.openai.com/c/4e64710f-6c84-4d74-a442-083c961a02f6). trong bài toán đơn giản thì dùng useState, phức tạp thì dùng useReducer
 - useContext được sử dụng để truyền dữ liệu từ component cha đến component con một cách hiệu quả hơn. Nó giúp tránh việc truyền dữ liệu qua nhiều tầng component(prop drilling), component cha dùng useContext thì tất cả component con (con của con,...) điều nhận được dữ liệu (https://chat.openai.com/c/3274eb06-8ccb-4228-8a20-497136204863)
 - forwardRef truy cập được ref của component con từ component cha và thực hiện các hành động trên nó. Điều này hữu ích khi muốn lấy các giá trị hoặc thực hiện các hành động trên phần tử DOM của component con.   
+- các component hoặc file CSS, SCCC phải nằm trong thư mục src
+- CSS module là các file CSS độc lập riêng biệt của từng component, có thể đặt trùng class, cơ chế là css module sẽ hash lại tên class, tên class đặt thêm camelCase không đặt kebab-case. Muốn dùng 2 class trở lên cho 1 tag thì dùng temple string
+    + CSS module không thể tái sử dụng giữa các components vì nó đã hash tên class
+    + không dùng được tag name, chỉ dùng cho class hoặc id
+    + khi muốn dùng chung CSS giữa các component thì dùng CSS thuần, CSS module là CSS riêng của từng component
+- dùng thư viện clsx (gõ lệnh 'npm config set legacy-peer-deps true' sau đó npm i clsx) để dùng nhiểu class bằng CSS module tiện hơn và có thể CSS động (xử lý logic)
+- dùng SCSS (npm i sass), đổi tên đôi file css thành scss
+- dùng react-router-dom v6 (npm i react-router-dom@6) để chuyển trang mà không bị reload, router chỉ chuyển được các pages nội bộ, không chuyển được các page bên ngoài
+    + Link thì không cần active
+    + NavLink thì cần CSS có class là active thì tự động NavLink sẽ được active
