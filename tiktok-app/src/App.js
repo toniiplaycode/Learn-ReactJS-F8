@@ -16,6 +16,7 @@ import ToDoUseReducer from './Hooks/ToDoUseReducer';
 import UseContext from './Hooks/UseContext';
 import ContextUseReducer from './Hooks/ContextUseReducer/ContextUseReducer';
 import {StoreProvider} from './Hooks/ContextUseReducer/store';
+import ForwardRef from './Hooks/ForwardRef/ForwardRef';
 
 import { useState } from 'react';
 
@@ -58,9 +59,11 @@ function App() {
         
         {/* <UseContext/> */}
 
-        <StoreProvider>
+        {/* <StoreProvider>
           <ContextUseReducer/>
-        </StoreProvider>
+        </StoreProvider> */}
+
+        <ForwardRef/>
 
       </header>
     </div>

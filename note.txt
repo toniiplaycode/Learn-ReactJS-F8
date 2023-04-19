@@ -76,6 +76,7 @@ khi chọn 1 ảnh và dùng luôn thì không nói, khi chọn ảnh thứ 2 đ
     4. gọi cleanup nếu dependency thay đổi
     5. gọi callback useEffect
 - useRef(<initValue>) dùng để lưu các giá trị khi component re-render thì các giá trị useRef cũng không bị ảnh hưởng, không bị set lại, hàm useRef sẽ trả về 1 object có key là current
+    --> useRef chỉ lấy được element DOM không lấy được function component
 - khi 1 component con nằm trong component cha, khi component cha re-render thì component con sẽ cũng bị re-render theo, điều này là không cần thiết. cách khắc phục điều này là dùng memo    
 - memo: là một HOC(higher order component) nhận tham số là 1 component sau đó check các props của component này sau mỗi lần render có bị thay đổi không. Nếu có ít nhất 1 props bị thay đổi giá trị thì sẽ re-render lại component đó còn nếu không có props nào thay đổi thì sẽ không re-render lại component
     --> lần đầu khi component cha được Mount thì component con vẫn được, sau khi Mount thì memo mới bắt đầu check prop
@@ -85,3 +86,4 @@ khi chọn 1 ảnh và dùng luôn thì không nói, khi chọn ảnh thứ 2 đ
 - useMemo: dùng để tránh lập lại logic không cần thiết, nó khác với memo. memo là tránh re-render lại component không cần thiết. useMemo là Hook, memo là HOC. cách dùng và cơ chế cũng giống giống useEffect, useCallback
 - useReducer (https://chat.openai.com/c/4e64710f-6c84-4d74-a442-083c961a02f6). trong bài toán đơn giản thì dùng useState, phức tạp thì dùng useReducer
 - useContext được sử dụng để truyền dữ liệu từ component cha đến component con một cách hiệu quả hơn. Nó giúp tránh việc truyền dữ liệu qua nhiều tầng component(prop drilling), component cha dùng useContext thì tất cả component con (con của con,...) điều nhận được dữ liệu (https://chat.openai.com/c/3274eb06-8ccb-4228-8a20-497136204863)
+- forwardRef truy cập được ref của component con từ component cha và thực hiện các hành động trên nó. Điều này hữu ích khi muốn lấy các giá trị hoặc thực hiện các hành động trên phần tử DOM của component con.   
