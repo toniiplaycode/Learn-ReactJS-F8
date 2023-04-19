@@ -27,6 +27,7 @@
 - tên các DOM event trong React là camelCase: onClick, onChange,...
 - tên component đặt kiểu PascalCase, nếu không sẽ bị lỗi
 - children props: là thuộc tính của props, children là nội dung bên trong 1 component
+----------------------------------------
 - dùng nodeJS chứ không dùng CDN link nữa
 - npx create-react-app <tên project>: tạo project với ReactJS
 - mặc định là React18 nên mình phải hạ xuống React17 (https://dev.to/ifeanyichima/how-to-downgrade-from-react-18-to-1702-818) để code theo F8 không bị lỗi
