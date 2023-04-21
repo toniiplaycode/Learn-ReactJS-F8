@@ -20,6 +20,7 @@ import ForwardRef from './Hooks/ForwardRef/ForwardRef';
 // import CssModule1 from './CSSModule-clsx/CssModule1';
 // import CssModule2 from './CSSModule-clsx/CssModule2';
 import ReactRouterDom from './ReactRouterDom/ReactRouterDom';
+import ToDoListFullFeature from './Exercise/ToDoListFullFeature';
 
 import { useState } from 'react';
 
@@ -41,16 +42,16 @@ function App() {
         {/* <button onClick = {() => setShow(!show)}>toggle</button> */}
 
         {/* <button onClick = {() => setShow(!show)}>toggle</button>
-        {show && <UseEffect/>} */}
+        {show && <UseEffect/>}   */}
 
         {/* <button onClick = {() => setShow(!show)}>toggle</button>
-        {show && <UseEffect2/>}  */}
+        {show && <UseEffect2/>}  */} 
 
         {/* <UseRef/> */}
 
         {/* <UseRef2/> */}
 
-        {/* <ParentMemo/> */}
+        <ParentMemo/>
 
         {/* <UseCallback/> */}
 
@@ -71,7 +72,9 @@ function App() {
         {/* <CssModule1/>
         <CssModule2/> */}
 
-        <ReactRouterDom/>
+        {/* <ReactRouterDom/> */}
+
+        {/* <ToDoListFullFeature/> */}
 
       </header>
     </div>

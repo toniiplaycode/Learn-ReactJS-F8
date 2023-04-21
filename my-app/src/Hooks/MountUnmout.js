@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 const MountUnmout = () => {
     return(
         <h2>Mount & Unmout</h2>

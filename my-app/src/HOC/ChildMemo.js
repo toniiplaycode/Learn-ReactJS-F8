@@ -1,9 +1,8 @@
 import { memo } from "react";
 
-//#1  nếu ChildMemo(không được truyền props) không dùng memo khi ParentMemoa re-render thì nó cũng re-render theo 
+// //#1  nếu ChildMemo(không được truyền props) không dùng memo khi ParentMemo re-render thì nó cũng re-render theo 
 // const ChildMemo = () => {
 //     console.log('call child memo');
-
 //     return(
 //         <div>
 //             Hello Memo
@@ -33,5 +32,8 @@ const ChildMemo = ({ count2 }) => {
     )
 }
 
+// không dùng memo
+// export default ChildMemo; 
 
+// có dùng memo
 export default memo(ChildMemo); 

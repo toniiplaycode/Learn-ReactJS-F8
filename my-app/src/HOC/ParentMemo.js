@@ -12,7 +12,6 @@ const ParentMemo = () => {
     const increase2 = () => {
         setCount2(count2 + 1);
     }
-    
 
     return(
         <div>

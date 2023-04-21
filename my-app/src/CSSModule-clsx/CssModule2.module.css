@@ -1,0 +1,7 @@
+@charset "UTF-8";
+.headingTitle { /* trùng class với CssModule1 nhưng vẫn không bị ảnh hưởng */
+  color: blue;
+}
+.headingTitle:hover {
+  background: orange;
+}/*# sourceMappingURL=CssModule2.module.css.map */

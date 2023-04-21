@@ -38,7 +38,7 @@
     + syntax: const [state, setState] = useState(initState);
         - setState mới sẽ ghi đè state cũ, dùng kết hợp với spead để thêm state mà không bị ghi đè state cũ
         - initState bất cứ kiểu dữ liệu gì cũng được, nếu initState là 1 hàm thì initState sẽ lấy giá trị của hàm đó retrun về, và các giá trị trong initState chỉ được khởi tạo 1 lần duy nhất khi component render lần đầu
-- nên dùng callback có tham số prevState để setState       
+- các hàm bất đồng bộ nên dùng callback có tham số prevState để setState
 - truyền hàm cho các sự kiện:
     ex: function logger(){
             console.log(123);
@@ -80,9 +80,9 @@ khi chọn 1 ảnh và dùng luôn thì không nói, khi chọn ảnh thứ 2 đ
     --> useRef chỉ lấy được element DOM không lấy được function component
 - khi 1 component con nằm trong component cha, khi component cha re-render thì component con sẽ cũng bị re-render theo, điều này là không cần thiết. cách khắc phục điều này là dùng memo    
 - memo: là một HOC(higher order component) nhận tham số là 1 component sau đó check các props của component này sau mỗi lần render có bị thay đổi không. Nếu có ít nhất 1 props bị thay đổi giá trị thì sẽ re-render lại component đó còn nếu không có props nào thay đổi thì sẽ không re-render lại component
-    --> lần đầu khi component cha được Mount thì component con vẫn được, sau khi Mount thì memo mới bắt đầu check prop
+    --> lần đầu khi component cha được Mount thì component con vẫn được gọi lần đầu tiên, sau khi Mount thì memo mới bắt đầu check prop
     --> dùng memo thì cần thiết, khi 1 component con không dùng props nào của component cha thì nên dùng meno. nếu component con có dùng props từ component cha thì khỏi cần dùng memo
-- useCallback dùng để tối ưu, nó giúp tránh tạo ra các hàm callback mới mỗi khi component re-render, useCallback nhận 2 tham số, callback và mảng dependency. nếu mảng dependency là 1 mảng trống thì nó sẽ không tạo ra 1 tham chiếu mới khi component re-render. nếu có dependency thì dependency đó thay đổi thì nó mới tạo ra 1 tham chiếu mới (cơ chế giống useEffect)
+- useCallback dùng để tối ưu, nó giúp tránh tạo ra các  hàm callback mới mỗi khi component re-render, useCallback nhận 2 tham số, callback và mảng dependency. nếu mảng dependency là 1 mảng trống thì nó sẽ không tạo ra 1 tham chiếu mới khi component re-render. nếu có dependency thì dependency đó thay đổi thì nó mới tạo ra 1 tham chiếu mới (cơ chế giống useEffect)
 - nếu 2 component cha con thì component con dùng memo, component cha mới dùng được useCallback
 - useMemo: dùng để tránh lập lại logic không cần thiết, nó khác với memo. memo là tránh re-render lại component không cần thiết. useMemo là Hook, memo là HOC. cách dùng và cơ chế cũng giống giống useEffect, useCallback
 - useReducer (https://chat.openai.com/c/4e64710f-6c84-4d74-a442-083c961a02f6). trong bài toán đơn giản thì dùng useState, phức tạp thì dùng useReducer
