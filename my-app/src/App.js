@@ -22,6 +22,7 @@ import ForwardRef from './Hooks/ForwardRef/ForwardRef';
 import ReactRouterDom from './ReactRouterDom/ReactRouterDom';
 import ToDoListFullFeature from './Exercise/ToDoListFullFeature';
 
+
 import { useState } from 'react';
 
 function App() {
@@ -51,7 +52,7 @@ function App() {
 
         {/* <UseRef2/> */}
 
-        <ParentMemo/>
+        {/* <ParentMemo/> */}
 
         {/* <UseCallback/> */}
 
@@ -72,7 +73,7 @@ function App() {
         {/* <CssModule1/>
         <CssModule2/> */}
 
-        {/* <ReactRouterDom/> */}
+        <ReactRouterDom/>
 
         {/* <ToDoListFullFeature/> */}
 

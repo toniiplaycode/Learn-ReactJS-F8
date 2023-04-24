@@ -9,13 +9,12 @@ const UseMemo = () => {
 
     const handleSubmit = () => {
         setProducts([...products, {name: name, price: Number(price)}]);
-        setName('');
 
+        setName('');
         setPrice('');
 
         inputRef.current.focus(); // dùng useRef để lấy được DOM element của input sau đó focus vào (hàm focus() là hàm của DOM không phải của React)
     }
-
 
     // khi không dùng useMemo thì hàm reduce sẽ tính lại liên tục khi component re-render 
     // const total = products.reduce((init, product) => {
@@ -28,7 +27,10 @@ const UseMemo = () => {
         const result = products.reduce((init, product) => {
             return init + product.price;
         }, 0)
+        
         console.log('Tính toán...');
+        console.log(products);
+
         return result;
     }, [products])
 

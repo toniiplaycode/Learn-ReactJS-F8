@@ -29,6 +29,9 @@ const ReactRouterDom = () => {
                         <Route path="/" element={<Home/>} />
                         <Route path="/news" element={<News/>} />
                         <Route path="/contact" element={<Contact/>} />
+
+                        {/* hardcode lên route */}
+                        <Route path='/news/:value' element={<News/>} />
                     </Routes>
                 </main>
             </>

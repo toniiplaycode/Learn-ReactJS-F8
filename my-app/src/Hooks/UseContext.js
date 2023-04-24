@@ -17,7 +17,7 @@ const UseContext = () => {
 
     const valueContext = {
         theme,
-        toggleTheme
+        toggleTheme 
     }
 
     return(
