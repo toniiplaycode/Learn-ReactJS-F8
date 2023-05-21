@@ -16,6 +16,7 @@ function Info() {
     
     const [description, setDecription] = useState('Description from input');
 
+
     return(
         <div>
             <p>{JSON.stringify(info)}</p>

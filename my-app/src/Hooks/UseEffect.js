@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 
 const UseEffect = () => {
     // #1 chỉ có callback không có dependency (update DOM)
-    //set lại title trên table chrome
-    const [title, setTitle] = useState('');
+    // set lại title trên table chrome
+    // const [title, setTitle] = useState('');
 
     // useEffect(() => { 
     //     document.title = title; // update lại DOM 
@@ -13,7 +13,7 @@ const UseEffect = () => {
     
     // #2 có callback và dependency là mảng rỗng (call API)
     //render các posts từ API
-    const [users, setUsers] = useState([]);
+    // const [users, setUsers] = useState([]);
         
     // fetch('https://jsonplaceholder.typicode.com/users')
     //     .then(res => res.json())
@@ -37,13 +37,13 @@ const UseEffect = () => {
     //     .then(users => {
     //         setUsers(users);
     //     })
-    // }, [])
+    // }, []) 
 
     // #3 có callback và có dependency (call API)
     const tabs = ['posts', 'comments', 'todos'];
     const [type, setType] = useState('posts');
     const [datas, setDatas] = useState([]);    
-
+    
     useEffect(() => {
         fetch(`https://jsonplaceholder.typicode.com/${type}`)
         .then(res => res.json())
@@ -59,6 +59,7 @@ const UseEffect = () => {
     useEffect(() => {
         const handleScroll = () => {
             setShowGoToTop(window.scrollY >= 200); // nếu scrollY >= 200 thì true, < 200 là false
+            console.log(Math.floor(window.scrollY));
         }
         window.addEventListener('scroll', handleScroll);
 
@@ -78,7 +79,7 @@ const UseEffect = () => {
     return(
         <div>
             {/* #1 chỉ có callback không có dependency */}
-            {/* {console.log(2)}  */}
+            {/* {console.log(2)} */}
             {/* 2 sẽ in ra trước so với useEffect không có dependency */}
             {/* <input onChange={e => setTitle(e.target.value) }/> */}
 
@@ -113,7 +114,7 @@ const UseEffect = () => {
                         </li>
                     )
                 }
-            </ul>
+            </ul> 
             
             {/* hiện nút scroll on top dùng useEffect #2 (DOM events) */}
             {showGoToTop &&

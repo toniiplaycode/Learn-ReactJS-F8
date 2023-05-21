@@ -24,6 +24,7 @@ import ToDoListFullFeature from './Exercise/ToDoListFullFeature';
 import ListUser from './Exercise/ListUser/ListUser';
 
 import { useState } from 'react';
+import AAAA from './Hooks/ATest';
 
 function App() {
   const [show, setShow] = useState(true);
@@ -32,6 +33,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+
+        {/* <AAAA/> */}
 
         {/* <Counter/> */}
 
@@ -42,8 +45,8 @@ function App() {
         {/* {show && <MountUnmout/>} */}
         {/* <button onClick = {() => setShow(!show)}>toggle</button> */}
 
-        {/* <button onClick = {() => setShow(!show)}>toggle</button>
-        {show && <UseEffect/>}   */}
+        <button onClick = {() => setShow(!show)}>toggle</button>
+        {show && <UseEffect/>}  
 
         {/* <button onClick = {() => setShow(!show)}>toggle</button>
         {show && <UseEffect2/>}  */} 
@@ -77,7 +80,7 @@ function App() {
 
         {/* <ToDoListFullFeature/> */}
 
-        <ListUser/>
+        {/* <ListUser/> */}
       </header>
     </div>
   );
