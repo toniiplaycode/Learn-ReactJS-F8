@@ -15,7 +15,7 @@ const UseRef2 = () => {
     const handleStart = () => {
         TimerId.current = setInterval(()=>{
             setCount(prevCount => prevCount - 1);
-        }, 1000)
+        }, 500)
         console.log('start: ', TimerId.current)
     }
     
@@ -31,7 +31,7 @@ const UseRef2 = () => {
     const h1Ref = useRef();
     useEffect(() => {
         console.log(h1Ref.current);
-    })
+    }, [])
 
     return (
         <div>

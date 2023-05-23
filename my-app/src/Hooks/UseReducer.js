@@ -16,7 +16,7 @@ const initState = 0;
 // actions: các action
 const UP_ACTION = 'up';
 const DOWN_ACTION = 'down';
-
+ 
 // reducer: hàm xử lý các action và trả về state mới, hàm reducer dùng 2 tham số là state, action
 const reducer = (state, action) => {
     console.log('reducer running...');

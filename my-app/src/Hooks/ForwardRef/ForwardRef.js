@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 const ForwardRef = () => {
     const videoRef = useRef();
 
+    
     useEffect(() => {
         console.log(videoRef.current);
     })

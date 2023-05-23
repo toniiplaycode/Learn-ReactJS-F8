@@ -29,6 +29,10 @@ const ReactRouterDom = () => {
 
                 <Link to={`news/${Paramater}`}>Push Paramater News page</Link>
 
+                <a>
+                    news
+                </a>
+
                 <main>
                     <Routes>
                         <Route path="/" element={<Home/>} />

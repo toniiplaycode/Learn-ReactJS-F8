@@ -7,7 +7,7 @@ console.log('module1: ', styles);
 const CssModule1 = () => {
 
     let showDecoration = true;
-    let showBgGrey = true;
+    let showBgGrey = false;
 
     return(
         <div>

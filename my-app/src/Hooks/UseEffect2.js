@@ -72,7 +72,7 @@ const UseEffect2 = () => {
             <br/>
             {avatar && 
                 <img 
-                    src={avatar.preview} alt=""
+                    src={avatar.preview}
                     style={{borderRadius: '10px', width: '100px'}}
                 />
             }

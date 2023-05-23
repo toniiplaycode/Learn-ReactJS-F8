@@ -43,6 +43,7 @@ const UseMemo = () => {
                 onChange={(e) => setName(e.target.value)}
             />
             <input
+                type="number"
                 value={price}
                 placeholder="Enter price..."
                 onChange={(e) => setPrice(e.target.value)}

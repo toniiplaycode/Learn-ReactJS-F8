@@ -12,19 +12,19 @@ const ParentMemo = () => {
     const increase2 = () => {
         setCount2(count2 + 1);
     }
-
+    
     return(
         <div>
             {/* 3 trường hợp khi dùng memo */}
 
-            {/* #1 nếu ChildMemo(không được truyền props) không dùng memo khi ParentMemoa re-render thì nó cũng re-render theo */}
+            {/* #1 nếu ChildMemo(không được truyền props) không dùng memo khi ParentMemo re-render thì nó cũng re-render theo */}
             {/* <ChildMemo/> */}
 
             {/* #2 truyền props cho ChildMemo, vì state count thay đổi nên ParentMemo re-render thì ChildMemo cũng re-render theo là hiển nhiên */}
             {/* <ChildMemo count={count}/> */}
             
             {/* #3 ChildMemo chỉ re-render đúng với props được chuyền vào */}
-            <ChildMemo count2={count2}/>
+            <ChildMemo count2={count2} />
 
             <h1>{count}</h1>
             <h1>{count2}</h1>
