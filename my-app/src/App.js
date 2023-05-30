@@ -23,6 +23,7 @@ import ReactRouterDom from './ReactRouterDom/ReactRouterDom';
 import ToDoListFullFeature from './Exercise/ToDoListFullFeature';
 import ListUser from './Exercise/ListUser/ListUser';
 import Calculator from './Exercise/Calculator/Calculator';
+import SearchProduct from './Exercise/SearchProduct/SearchProduct';
 
 import { useState } from 'react';
 
@@ -80,10 +81,10 @@ function App() {
 
         {/* <ListUser/> */}
 
-        <Calculator/>
-        
-      </header>
+        {/* <Calculator/> */}
 
+        <SearchProduct/>
+      </header>
     </div>
   );
 }
