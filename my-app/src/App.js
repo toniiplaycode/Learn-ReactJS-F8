@@ -22,6 +22,7 @@ import ForwardRef from './Hooks/ForwardRef/ForwardRef';
 import ReactRouterDom from './ReactRouterDom/ReactRouterDom';
 import ToDoListFullFeature from './Exercise/ToDoListFullFeature';
 import ListUser from './Exercise/ListUser/ListUser';
+import Calculator from './Exercise/Calculator/Calculator';
 
 import { useState } from 'react';
 
@@ -75,10 +76,14 @@ function App() {
 
         {/* <ReactRouterDom/> */}
 
-        <ToDoListFullFeature/>
+        {/* <ToDoListFullFeature/> */}
 
         {/* <ListUser/> */}
+
+        <Calculator/>
+        
       </header>
+
     </div>
   );
 }

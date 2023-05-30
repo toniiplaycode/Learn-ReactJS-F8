@@ -33,7 +33,7 @@
 - mặc định là React18 nên mình phải hạ xuống React17 (https://dev.to/ifeanyichima/how-to-downgrade-from-react-18-to-1702-818) để code theo F8 không bị lỗi
 - npm start: chạy project trên trình duyệt
 - các file trong folder public ở trình duyệt mới truy cập được, còn lại ở trình duyệt không truy cập được(bảo mật), khi React chạy thì file index.html trong folder public sẽ được chạy
-- Hook chỉ được dùng trong function component, không dùng "this" như trong class component
+- Hooks chỉ được dùng trong function component, không dùng "this" như trong class component, tại sao dùng Hooks (https://viblo.asia/p/cung-tim-hieu-ve-cac-hook-trong-react-hooks-Ljy5VYgjlra)
 - useState(): là các giá trị được lưu trữ trong component giá trị thay đổi thì giao diện sẽ thay đổi và component đó sẽ được re-render lại
     + syntax: const [state, setState] = useState(initState);
         - setState mới sẽ ghi đè state cũ, dùng kết hợp với spead để thêm state mà không bị ghi đè state cũ
@@ -53,7 +53,8 @@
 - toán tử '&&' là truty, nếu giá trị bên trái khác false, null, undefined, 0, NaN, '<rỗng>' thì code bên phải được chạy và ngược lại
 - thuật ngữ "Mount và Unmount" là gắn và gở 1 component, (dùng câu lệnh điều kiện + useState để thực hiện)
 - useEffect: cho phép thực hiện các side effect trong component. Side effect là các thao tác bên ngoài component như tương tác với API, đọc/ghi dữ liệu từ DB hoặc thay đổi DOM (https://chat.openai.com/chat/5a13ac2f-c84f-49b2-938e-acea958b5a8d), hàm useEffect có 2 tham số: callback(để thực các side effect), dependency
-    1. useEffect chỉ có callback không có tham số dependency (trường hợp này ít dùng vì callback sẽ được gọi lại khi component re-render)
+    --> useEffect được dùng thay thế cho lifeCycle method (https://chat.openai.com/c/afccd42f-d1e4-4a6c-902f-d42a6eff7e84)
+    1. useEffect chỉ có callback không có tham số dependency (trường` hợp này ít dùng vì callback sẽ được gọi lại khi component re-render)
         - gọi callback mỗi khi component re-render 
         - khi state trong component thay đổi thì callback được gọi lại
         - gọi callback sau khi component thêm element vào DOM
@@ -81,10 +82,11 @@ khi chọn 1 ảnh và dùng luôn thì không nói, khi chọn ảnh thứ 2 đ
 - khi 1 component con nằm trong component cha, khi component cha re-render thì component con sẽ cũng bị re-render theo, điều này là không cần thiết. cách khắc phục điều này là dùng memo    
 - memo: là một HOC(higher order component) nhận tham số là 1 component sau đó check các props của component này sau mỗi lần render có bị thay đổi không. Nếu có ít nhất 1 props bị thay đổi giá trị thì sẽ re-render lại component đó còn nếu không có props nào thay đổi thì sẽ không re-render lại component
     --> lần đầu khi component cha được Mount thì component con vẫn được gọi lần đầu tiên, sau khi Mount thì memo mới bắt đầu check prop
-    --> dùng memo thì cần thiết, khi 1 component con không dùng props nào của component cha thì nên dùng meno. nếu component con có dùng props từ component cha thì khỏi cần dùng memo
-- useCallback dùng để tối ưu, nó giúp tránh tạo ra các  hàm callback mới mỗi khi component re-render, useCallback nhận 2 tham số, callback và mảng dependency. nếu mảng dependency là 1 mảng trống thì nó sẽ không tạo ra 1 tham chiếu mới khi component re-render. nếu có dependency thì dependency đó thay đổi thì nó mới tạo ra 1 tham chiếu mới (cơ chế giống useEffect)
+    --> dùng memo thì cần thiết, khi 1 component con không dùng props nào của component cha thì nên dùng memo. nếu component con có dùng props từ component cha thì khỏi cần dùng memo
+- useCallback dùng để tối ưu, nó giúp tránh tạo ra các hàm callback mới mỗi khi component re-render, useCallback nhận 2 tham số, callback và mảng dependency. nếu mảng dependency là 1 mảng trống thì nó sẽ không tạo ra 1 tham chiếu mới khi component re-render. nếu có dependency thì dependency đó thay đổi thì nó mới tạo ra 1 tham chiếu mới (cơ chế giống useEffect)
 - nếu 2 component cha con thì component con dùng memo, component cha mới dùng được useCallback
 - useMemo: dùng để tránh lập lại logic không cần thiết, nó khác với memo. memo là tránh re-render lại component không cần thiết. useMemo là Hook, memo là HOC. cách dùng và cơ chế cũng giống giống useEffect, useCallback
+--> useMemo cơ chế ygan useEffect, có thể dùng useEffect thay cho useMemo
 - useReducer (https://chat.openai.com/c/4e64710f-6c84-4d74-a442-083c961a02f6). trong bài toán đơn giản thì dùng useState, phức tạp thì dùng useReducer
 - useContext được sử dụng để truyền dữ liệu từ component cha đến component con một cách hiệu quả hơn. Nó giúp tránh việc truyền dữ liệu qua nhiều tầng component(prop drilling), component cha dùng useContext thì tất cả component con (con của con,...) điều nhận được dữ liệu (https://chat.openai.com/c/3274eb06-8ccb-4228-8a20-497136204863)
 - forwardRef truy cập được ref của component con từ component cha và thực hiện các hành động trên nó. Điều này hữu ích khi muốn lấy các giá trị hoặc thực hiện các hành động trên phần tử DOM của component con.   
