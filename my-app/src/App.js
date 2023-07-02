@@ -56,7 +56,7 @@ function App() {
 
         {/* <ParentMemo/>  */}
 
-        {/* <UseCallback/> */}
+        <UseCallback/>
 
         {/* <UseMemo/> */}
 
@@ -83,7 +83,7 @@ function App() {
 
         {/* <Calculator/> */}
 
-        <SearchProduct/>
+        {/* <SearchProduct/> */}
       </header>
     </div>
   );

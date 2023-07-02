@@ -53,7 +53,7 @@
 - toán tử '&&' là truty, nếu giá trị bên trái khác false, null, undefined, 0, NaN, '<rỗng>' thì code bên phải được chạy và ngược lại
 - thuật ngữ "Mount và Unmount" là gắn và gở 1 component, (dùng câu lệnh điều kiện + useState để thực hiện)
 - useEffect: cho phép thực hiện các side effect trong component. Side effect là các thao tác bên ngoài component như tương tác với API, đọc/ghi dữ liệu từ DB hoặc thay đổi DOM (https://chat.openai.com/chat/5a13ac2f-c84f-49b2-938e-acea958b5a8d), hàm useEffect có 2 tham số: callback(để thực các side effect), dependency
-    --> useEffect được dùng thay thế cho lifeCycle method (https://chat.openai.com/c/afccd42f-d1e4-4a6c-902f-d42a6eff7e84)
+    --> useEffect được dùng thay thế cho lifeCycle method (class component) (https://chat.openai.com/c/afccd42f-d1e4-4a6c-902f-d42a6eff7e84)
     1. useEffect chỉ có callback không có tham số dependency (trường` hợp này ít dùng vì callback sẽ được gọi lại khi component re-render)
         - gọi callback mỗi khi component re-render 
         - khi state trong component thay đổi thì callback được gọi lại
